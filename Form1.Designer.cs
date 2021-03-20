@@ -160,9 +160,9 @@ namespace CoinFlippedSeed
             this.radioButton3.AutoSize = true;
             this.radioButton3.Location = new System.Drawing.Point(30, 51);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(96, 19);
+            this.radioButton3.Size = new System.Drawing.Size(97, 19);
             this.radioButton3.TabIndex = 10;
-            this.radioButton3.Text = "Native segwit";
+            this.radioButton3.Text = "Native Segwit";
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
