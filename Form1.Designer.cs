@@ -42,10 +42,17 @@ namespace CoinFlippedSeed
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.the_one = new System.Windows.Forms.Button();
+            this.the_two = new System.Windows.Forms.Button();
+            this.the_three = new System.Windows.Forms.Button();
+            this.the_six = new System.Windows.Forms.Button();
+            this.the_five = new System.Windows.Forms.Button();
+            this.the_four = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,11 +97,11 @@ namespace CoinFlippedSeed
             // 
             this.timesLabel.AutoSize = true;
             this.timesLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.timesLabel.Location = new System.Drawing.Point(377, 23);
+            this.timesLabel.Location = new System.Drawing.Point(362, 23);
             this.timesLabel.Name = "timesLabel";
-            this.timesLabel.Size = new System.Drawing.Size(64, 28);
+            this.timesLabel.Size = new System.Drawing.Size(101, 28);
             this.timesLabel.TabIndex = 4;
-            this.timesLabel.Text = "0/128";
+            this.timesLabel.Text = "0/128 bits";
             // 
             // tails
             // 
@@ -161,6 +168,7 @@ namespace CoinFlippedSeed
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.checkBox2);
             this.groupBox1.Controls.Add(this.checkBox1);
@@ -174,11 +182,21 @@ namespace CoinFlippedSeed
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(91, 152);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(55, 25);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Dice";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(37, 156);
+            this.button1.Location = new System.Drawing.Point(16, 152);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 25);
+            this.button1.Size = new System.Drawing.Size(55, 25);
             this.button1.TabIndex = 13;
             this.button1.Text = "Reset";
             this.button1.UseVisualStyleBackColor = true;
@@ -219,11 +237,83 @@ namespace CoinFlippedSeed
             this.label3.Size = new System.Drawing.Size(0, 11);
             this.label3.TabIndex = 12;
             // 
+            // the_one
+            // 
+            this.the_one.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.the_one.Location = new System.Drawing.Point(324, 73);
+            this.the_one.Name = "the_one";
+            this.the_one.Size = new System.Drawing.Size(43, 45);
+            this.the_one.TabIndex = 13;
+            this.the_one.Text = "1";
+            this.the_one.UseVisualStyleBackColor = true;
+            this.the_one.Click += new System.EventHandler(this.the_one_Click);
+            // 
+            // the_two
+            // 
+            this.the_two.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.the_two.Location = new System.Drawing.Point(386, 73);
+            this.the_two.Name = "the_two";
+            this.the_two.Size = new System.Drawing.Size(43, 45);
+            this.the_two.TabIndex = 14;
+            this.the_two.Text = "2";
+            this.the_two.UseVisualStyleBackColor = true;
+            this.the_two.Click += new System.EventHandler(this.the_two_Click);
+            // 
+            // the_three
+            // 
+            this.the_three.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.the_three.Location = new System.Drawing.Point(448, 73);
+            this.the_three.Name = "the_three";
+            this.the_three.Size = new System.Drawing.Size(43, 45);
+            this.the_three.TabIndex = 15;
+            this.the_three.Text = "3";
+            this.the_three.UseVisualStyleBackColor = true;
+            this.the_three.Click += new System.EventHandler(this.the_three_Click);
+            // 
+            // the_six
+            // 
+            this.the_six.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.the_six.Location = new System.Drawing.Point(448, 127);
+            this.the_six.Name = "the_six";
+            this.the_six.Size = new System.Drawing.Size(43, 45);
+            this.the_six.TabIndex = 18;
+            this.the_six.Text = "6";
+            this.the_six.UseVisualStyleBackColor = true;
+            this.the_six.Click += new System.EventHandler(this.the_six_Click);
+            // 
+            // the_five
+            // 
+            this.the_five.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.the_five.Location = new System.Drawing.Point(386, 127);
+            this.the_five.Name = "the_five";
+            this.the_five.Size = new System.Drawing.Size(43, 45);
+            this.the_five.TabIndex = 17;
+            this.the_five.Text = "5";
+            this.the_five.UseVisualStyleBackColor = true;
+            this.the_five.Click += new System.EventHandler(this.the_five_Click);
+            // 
+            // the_four
+            // 
+            this.the_four.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.the_four.Location = new System.Drawing.Point(324, 127);
+            this.the_four.Name = "the_four";
+            this.the_four.Size = new System.Drawing.Size(43, 45);
+            this.the_four.TabIndex = 16;
+            this.the_four.Text = "4";
+            this.the_four.UseVisualStyleBackColor = true;
+            this.the_four.Click += new System.EventHandler(this.the_four_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.the_six);
+            this.Controls.Add(this.the_five);
+            this.Controls.Add(this.the_four);
+            this.Controls.Add(this.the_three);
+            this.Controls.Add(this.the_two);
+            this.Controls.Add(this.the_one);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
@@ -262,6 +352,16 @@ namespace CoinFlippedSeed
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button the_one;
+        private System.Windows.Forms.Button the_two;
+        private System.Windows.Forms.Button the_three;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button the_five;
+        private System.Windows.Forms.Button the_four;
+        private System.Windows.Forms.Button the;
+        private System.Windows.Forms.Button hre;
+        private System.Windows.Forms.Button the_six;
     }
 }
 

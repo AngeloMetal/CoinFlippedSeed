@@ -19,6 +19,12 @@ namespace CoinFlippedSeed
         public Form1()
         {
             InitializeComponent();
+            the_one.Width = 0;
+            the_two.Width = 0;
+            the_three.Width = 0;
+            the_four.Width = 0;
+            the_five.Width = 0;
+            the_six.Width = 0;
         }
 
         private void heads_Click(object sender, EventArgs e)
@@ -48,7 +54,7 @@ namespace CoinFlippedSeed
             }
 
             times += 1;
-            timesLabel.Text = times + "/128";
+            timesLabel.Text = times + "/128 bits";
 
             if(bins.Length == 128)
             {
@@ -58,9 +64,43 @@ namespace CoinFlippedSeed
             }
         }
 
+        public void CheckForDice(string t)
+        {
+            bins += t;
+
+            if (checkBox2.Checked == true)
+            {
+                label3.Text = "Entropy: " + bins;
+            }
+
+            timesLabel.Text = bins.Length + "/128 bits";
+
+            if (bins.Length >= 128)
+            {
+                the_one.Enabled = false;
+                the_two.Enabled = false;
+                the_three.Enabled = false;
+                the_four.Enabled = false;
+                the_five.Enabled = false;
+                the_six.Enabled = false;
+                timesLabel.Text = "128/128 bits";
+                if(checkBox2.Checked == true)
+                {
+                    label3.Text = "Entropy: " + bins.Substring(0, 128);
+                }
+                else
+                {
+                    label3.Text = "";
+                }
+                
+                
+                Finalize(bins.Substring(0, 128));
+            }
+
+        }
+
         public void Finalize(string input)
         {
-            //Finalize("01101101011100100001010101101000101010010100000010010001001001110000100111100010101000101010010101000000001010110110001001010011");
             int numOfBytes = input.Length / 8;
             byte[] bytes = new byte[numOfBytes];
             for (int i = 0; i < numOfBytes; ++i)
@@ -107,9 +147,8 @@ namespace CoinFlippedSeed
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             //on change "Show private keys"
-           
             richTextBox1.Text = "";
-            if (bins.Length == 128)
+            if (bins.Length >= 128)
             {
                 Finalize(bins);
             }
@@ -135,10 +174,16 @@ namespace CoinFlippedSeed
         {
             heads.Enabled = true;
             tails.Enabled = true;
+            the_one.Enabled = true;
+            the_two.Enabled = true;
+            the_three.Enabled = true;
+            the_four.Enabled = true;
+            the_five.Enabled = true;
+            the_six.Enabled = true;
             textBox1.Text = "";
             richTextBox1.Text = "";
             bins = "";
-            timesLabel.Text = "0/128";
+            timesLabel.Text = "0/128 bits";
             label3.Text = "Entropy: ";
             times = 0;
         }
@@ -146,7 +191,7 @@ namespace CoinFlippedSeed
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             richTextBox1.Text = "";
-            if(bins.Length == 128)
+            if(bins.Length >= 128)
             {
                 Finalize(bins);
             }
@@ -169,6 +214,91 @@ namespace CoinFlippedSeed
             {
                 Finalize(bins);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            heads.Enabled = true;
+            tails.Enabled = true;
+            the_one.Enabled = true;
+            the_two.Enabled = true;
+            the_three.Enabled = true;
+            the_four.Enabled = true;
+            the_five.Enabled = true;
+            the_six.Enabled = true;
+            if (heads.Width != 0)
+            {
+                button2.Text = "Coin";
+                heads.Width = 0;
+                tails.Width = 0;
+                the_one.Width = 43;
+                the_two.Width = 43;
+                the_three.Width = 43;
+                the_four.Width = 43;
+                the_five.Width = 43;
+                the_six.Width = 43;
+                header.Text = "No random number generators.\nJust roll a dice.\nThis will be your entropy.\n1 = 01\n2 = 10\n3 = 11\n4 = 0\n5 = 1\n6 = 00";
+            }
+            else
+            {
+                button2.Text = "Dice";
+                heads.Width = 80;
+                tails.Width = 80;
+                the_one.Width = 0;
+                the_two.Width = 0;
+                the_three.Width = 0;
+                the_four.Width = 0;
+                the_five.Width = 0;
+                the_six.Width = 0;
+                header.Text = "No random number generators.\nJust flip a coin 128 times.\nThis will be your entropy.\nHeads = 1\nTails = 0";
+            }
+          
+            textBox1.Text = "";
+            richTextBox1.Text = "";
+            bins = "";
+            timesLabel.Text = "0/128 bits";
+            if(checkBox2.Checked == true)
+            {
+                label3.Text = "Entropy: ";
+            }
+            else
+            {
+                label3.Text = "";
+            }
+            
+            times = 0;
+
+
+        }
+
+        private void the_one_Click(object sender, EventArgs e)
+        {
+            CheckForDice("01");
+        }
+
+        private void the_two_Click(object sender, EventArgs e)
+        {
+            CheckForDice("10");
+        }
+
+        private void the_three_Click(object sender, EventArgs e)
+        {
+            CheckForDice("11");
+        }
+
+        private void the_four_Click(object sender, EventArgs e)
+        {
+            CheckForDice("0");
+        }
+
+        private void the_five_Click(object sender, EventArgs e)
+        {
+            CheckForDice("1");
+        }
+
+        private void the_six_Click(object sender, EventArgs e)
+        {
+            CheckForDice("00");
         }
     }
 }
